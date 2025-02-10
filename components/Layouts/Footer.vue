@@ -61,14 +61,17 @@ const handleClick = (id) => {
     <div class="px-4 py-12 border-t border-gray-700">
       <div class="container">
         <div class="grid grid-cols-10 gap-4 md:gap-6">
-          <div class="col-span-4 space-y-4">
+          <div
+            class="col-span-10 lg:col-span-4 space-y-4 text-center lg:text-left"
+          >
             <NuxtImg
               src="/assets/ck-logo-light.svg"
               alt="CK Logo"
               loading="lazy"
               width="120"
+              class="mx-auto lg:ml-0"
             />
-            <div class="text-sm text-white/60 max-w-[420px]">
+            <div class="text-sm text-white/60 max-w-[420px] mx-auto lg:ml-0">
               Thank you for taking the time to review my portfolio. Even though
               we haven’t worked together yet, I truly hope we’ll have the
               opportunity to collaborate in the future and create something
@@ -76,27 +79,33 @@ const handleClick = (id) => {
             </div>
           </div>
 
-          <div class="col-span-2 space-y-4">
-            <div class="font-medium">Sections</div>
+          <div class="col-span-10 lg:col-span-2 space-y-4 my-8 lg:my-0">
+            <div class="font-medium text-center lg:text-left">Sections</div>
             <div
-              v-for="(item, index) in menuList"
-              :key="`menu-${index}`"
-              class="text-sm text-white/60 cursor-pointer hover:text-white/90"
-              @click="handleClick(item.goTo)"
+              class="flex justify-center lg:block lg:justify-start items-center gap-4 lg:space-y-4"
             >
-              {{ item.name }}
+              <div
+                v-for="(item, index) in menuList"
+                :key="`menu-${index}`"
+                class="text-sm text-white/60 cursor-pointer hover:text-white/90"
+                @click="handleClick(item.goTo)"
+              >
+                {{ item.name }}
+              </div>
             </div>
           </div>
 
-          <div class="col-span-4 space-y-4">
+          <div
+            class="col-span-10 lg:col-span-4 space-y-4 text-center lg:text-left"
+          >
             <div class="font-medium">Contact Us</div>
-            <div class="text-sm text-white/60 max-w-[380px]">
+            <div class="text-sm text-white/60 max-w-[380px] mx-auto lg:ml-0">
               62/40 Soi Charoen Krung 57, Khwaeng Yan Nawa, Khet Sathon, Krung
               Thep Maha Nakhon 10120
             </div>
 
             <div
-              class="flex items-center gap-4 w-fit border border-gray-700 rounded bg-gray-800 p-1"
+              class="flex items-center mx-auto lg:ml-0 gap-4 w-fit border border-gray-700 rounded bg-gray-800 p-1"
             >
               <LucideMail class="ml-2 text-white/80" />
               <div class="tracking-widest text-white/80">
@@ -110,12 +119,16 @@ const handleClick = (id) => {
               </div>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div
+              class="flex items-center justify-center lg:justify-start gap-4"
+            >
               <div
                 class="flex items-center gap-2 border border-gray-700 px-3 py-2 rounded text-white/50 hover:text-white/80 hover:bg-white/5"
               >
                 <LucidePhone :size="18" />
-                <a href="tel:0930271716" class="leading-none"> 093-027-1716 </a>
+                <a href="tel:0930271716" class="leading-none tracking-widest">
+                  093-027-1716
+                </a>
               </div>
 
               <a
@@ -139,8 +152,9 @@ const handleClick = (id) => {
 
     <div class="p-4 border-t border-gray-700 text-white/40">
       <div class="container tracking-wider text-center text-xs">
-        Copyright © 2010 - {{ new Date().getFullYear() }} Chutipong Kritkaow |
-        <span class="font-semibold">Last Update :</span>
+        Copyright © 2010 - {{ new Date().getFullYear() }} Chutipong Kritkaow
+        <br class="md:hidden" />
+        <span class="font-semibold md:ml-2">Last Update :</span>
         <span>{{ config.public.lastUpdate }}</span>
       </div>
     </div>

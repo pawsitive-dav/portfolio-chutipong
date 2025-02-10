@@ -1,9 +1,9 @@
 <script setup>
 const stickyMode = ref(false);
-const activeSection = ref('home');
+const activeSection = ref('welcome');
 
 const menuList = [
-  { name: 'Home', goTo: '#home' },
+  { name: 'Welcome', goTo: '#welcome' },
   { name: 'About Us', goTo: '#about-us' },
   { name: 'Resume', goTo: '#resume' },
   { name: 'Portfolio', goTo: '#portfolio' },
@@ -22,7 +22,7 @@ const handleScroll = () => {
   }
 
   const sections = document.querySelectorAll('section[id]');
-  let currentSection = 'home';
+  let currentSection = 'welcome';
 
   sections.forEach((section) => {
     const rect = section.getBoundingClientRect();
@@ -96,7 +96,7 @@ onMounted(() => {
         </div>
 
         <!-- Right Zone -->
-        <div class="flex items-center gap-4">
+        <div class="items-center gap-4 hidden md:flex">
           <div
             v-for="(item, index) in menuList"
             :key="index"
