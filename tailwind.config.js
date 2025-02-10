@@ -1,0 +1,67 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './app.vue',
+    './error.vue',
+    './assets/**/*.css',
+    './store/**/*.ts',
+  ],
+  darkMode: 'class',
+  theme: {
+    container: {
+      center: true,
+    },
+    extend: {
+      fontFamily: {
+        sans: ['Noto Sans Thai', 'sans-serif'],
+      },
+      fontSize: {
+        xs: ['12px', '1.5'],
+        sm: ['13px', '1.5'],
+        base: ['14px', '1.6'],
+        lg: ['16px', '1.6'],
+        xl: ['18px', '1.6'],
+        '2xl': ['20px', '1.6'],
+        '3xl': ['24px', '1.6'],
+        '4xl': ['32px', '1.6'],
+        '5xl': ['40px', '1.6'],
+        '6xl': ['48px', '1.6'],
+      },
+      colors: {
+        primary: {
+          base: '#2563EB',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
+          950: '#172554',
+        },
+        secondary: {
+          base: '#1E293B',
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
+          700: '#334155',
+          800: '#1E293B',
+          900: '#0F172A',
+          950: '#020617',
+        },
+      },
+    },
+  },
+  plugins: [],
+};
