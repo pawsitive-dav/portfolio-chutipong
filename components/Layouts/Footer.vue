@@ -1,6 +1,15 @@
 <script setup>
 const config = useRuntimeConfig();
 
+const copied = ref(false);
+
+const menuList = [
+  { name: 'About Us', goTo: '#about-us' },
+  { name: 'Resume', goTo: '#resume' },
+  { name: 'Portfolio', goTo: '#portfolio' },
+  { name: 'Contact Us', goTo: '#contact-us' },
+];
+
 const socialsContact = [
   {
     icon: '/assets/line-icon-light.png',
@@ -18,6 +27,33 @@ const socialsContact = [
     link: 'https://www.facebook.com/ichudev',
   },
 ];
+
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    copied.value = true;
+    setTimeout(() => {
+      copied.value = false;
+    }, 2000);
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+};
+
+const handleClick = (id) => {
+  const targetElement = document.querySelector(id);
+  if (targetElement) {
+    const offset = 80;
+    const elementPosition =
+      targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  }
+};
 </script>
 
 <template>
@@ -25,14 +61,13 @@ const socialsContact = [
     <div class="px-4 py-12 border-t border-gray-700">
       <div class="container">
         <div class="grid grid-cols-10 gap-4 md:gap-6">
-          <div class="col-span-4 space-y-2">
+          <div class="col-span-4 space-y-4">
             <NuxtImg
               src="/assets/ck-logo-light.svg"
               alt="CK Logo"
               loading="lazy"
               width="120"
             />
-
             <div class="text-sm text-white/60 max-w-[420px]">
               Thank you for taking the time to review my portfolio. Even though
               we haven’t worked together yet, I truly hope we’ll have the
@@ -42,21 +77,22 @@ const socialsContact = [
           </div>
 
           <div class="col-span-2 space-y-4">
-            <div class="font-medium">Menu</div>
-            <div class="text-sm text-white/60">About Us</div>
-            <div class="text-sm text-white/60">Resume</div>
-            <div class="text-sm text-white/60">Portfolio</div>
-            <div class="text-sm text-white/60">Contact Us</div>
+            <div class="font-medium">Sections</div>
+            <div
+              v-for="(item, index) in menuList"
+              :key="`menu-${index}`"
+              class="text-sm text-white/60 cursor-pointer hover:text-white/90"
+              @click="handleClick(item.goTo)"
+            >
+              {{ item.name }}
+            </div>
           </div>
 
           <div class="col-span-4 space-y-4">
             <div class="font-medium">Contact Us</div>
-            <div class="text-sm text-white/60 flex gap-3">
-              <LucideMapPinHouse :size="18" />
-              <div>
-                62/40 Soi Khwaeng Yan Nawa, Khet Sathon, Krung Thep Maha Nakhon
-                10120
-              </div>
+            <div class="text-sm text-white/60 max-w-[380px]">
+              62/40 Soi Charoen Krung 57, Khwaeng Yan Nawa, Khet Sathon, Krung
+              Thep Maha Nakhon 10120
             </div>
 
             <div
@@ -67,9 +103,10 @@ const socialsContact = [
                 ichu.dev@gmail.com
               </div>
               <div
-                class="bg-white text-gray-900 font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90"
+                @click="copyToClipboard('ichu.dev@gmail.com')"
+                class="bg-white text-gray-900 w-[70px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
               >
-                copy to clipboard
+                {{ copied ? 'Copied!' : 'Copy' }}
               </div>
             </div>
 
@@ -83,7 +120,7 @@ const socialsContact = [
 
               <a
                 v-for="(item, index) in socialsContact"
-                :key="index"
+                :key="`social-${index}`"
                 :href="item.link"
                 target="_blank"
               >

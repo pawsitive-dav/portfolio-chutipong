@@ -36,7 +36,7 @@ useHead({
       perferendis quia. Voluptate!
     </section>
 
-    <section id="portfolio" class="container h-[800px]">
+    <section id="portfolio" class="container h-[1500px]">
       <h2 class="text-xl">Portfolio</h2>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae voluptates
       natus numquam sit voluptatum. Voluptates corporis facilis, ea eligendi

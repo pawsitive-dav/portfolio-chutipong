@@ -12,12 +12,30 @@ const menuList = [
   { name: 'Contact Us', goTo: '#contact-us' },
 ];
 
-// ฟังก์ชันตรวจจับ Scroll และ Sticky Mode
 const handleScroll = () => {
   stickyMode.value = window.scrollY > 0;
+
+  const scrollPosition = window.innerHeight + window.scrollY;
+  const bottomPosition = document.documentElement.scrollHeight;
+
+  if (scrollPosition >= bottomPosition - 50) {
+    activeSection.value = 'contact-us';
+    return;
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  let currentSection = 'home';
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 100 && rect.bottom >= 100) {
+      currentSection = section.id;
+    }
+  });
+
+  activeSection.value = currentSection;
 };
 
-// ฟังก์ชันเลื่อนไปที่ Section และหยุดก่อน 80px
 const handleClick = (id) => {
   const targetElement = document.querySelector(id);
   if (targetElement) {
@@ -33,7 +51,6 @@ const handleClick = (id) => {
   }
 };
 
-// ฟังก์ชันตรวจจับว่า Section ไหน Active
 const handleIntersection = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -45,10 +62,9 @@ const handleIntersection = (entries) => {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 
-  // ใช้ IntersectionObserver
   const observer = new IntersectionObserver(handleIntersection, {
     root: null,
-    rootMargin: '-50% 0px -50% 0px', // ตรวจจับเมื่อ Section อยู่ตรงกลางจอ
+    rootMargin: '-50% 0px -50% 0px',
     threshold: 0,
   });
 
@@ -66,7 +82,7 @@ onMounted(() => {
 
 <template>
   <div
-    :class="stickyMode && ' bg-gray-900 bg-opacity-80 backdrop-blur'"
+    :class="stickyMode && ' bg-gray-900 bg-opacity-80 backdrop-blur-sm'"
     class="border-b border-gray-700 px-4 sticky top-0 transition-all duration-200"
   >
     <div class="container text-white">
@@ -89,7 +105,7 @@ onMounted(() => {
             @click="handleClick(item.goTo)"
             class="cursor-pointer transition duration-300 opacity-50 hover:opacity-100"
             :class="{
-              'text-primary-500 opacity-100 hover:opacity-100 border-b border-primary-200':
+              'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
                 activeSection === item.goTo.replace('#', ''),
             }"
           >
@@ -100,10 +116,10 @@ onMounted(() => {
           <a
             href="https://line.me/ti/p/~hichiso8"
             target="_blank"
-            class="flex items-center gap-2 rounded ml-8 bg-primary-base px-3 h-[36px] tracking-widest cursor-pointer hover:bg-opacity-90"
+            class="flex items-center gap-2 rounded ml-8 px-4 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
           >
             <div>Get in Touch</div>
-            <LucideMessageSquareMore :size="18" />
+            <LucideMessageSquareMore :size="18" class="text-white/70" />
           </a>
         </div>
       </div>
