@@ -29,7 +29,7 @@ button {
     <button
       v-show="showButton"
       @click="scrollToTop"
-      class="fixed bottom-2 right-2 md:bottom-8 md:right-8 z-50 py-4 px-2 bg-blue-600/50 text-white rounded-full shadow-lg hover:bg-blue-800 transition duration-300"
+      class="fixed bottom-2 right-2 md:bottom-8 md:right-8 z-40 py-4 px-2 bg-blue-600/50 text-white rounded-full shadow-lg hover:bg-blue-800 transition duration-300"
     >
       <LucideMoveUp class="w-4 h-4" />
     </button>

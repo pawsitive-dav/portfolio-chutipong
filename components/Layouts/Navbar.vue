@@ -100,12 +100,12 @@ onMounted(() => {
           <div
             v-for="(item, index) in menuList"
             :key="index"
-            @click="handleClick(item.goTo)"
             class="cursor-pointer transition duration-300 opacity-80 hover:opacity-100"
             :class="{
               'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
                 activeSection === item.goTo.replace('#', ''),
             }"
+            @click="handleClick(item.goTo)"
           >
             {{ item.name }}
           </div>
@@ -119,6 +119,26 @@ onMounted(() => {
             <div>Get in Touch</div>
             <LucideMessageSquareMore :size="18" class="text-white/70" />
           </a>
+        </div>
+
+        <!-- Mobile Zone -->
+        <div class="md:hidden flex gap-2">
+          <div
+            v-for="(item, index) in menuList"
+            :key="`mobile-${menuList}`"
+            :class="{
+              'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
+                activeSection === item.goTo.replace('#', ''),
+            }"
+            class="p-2 rounded bg-white/5 text-white/60"
+            @click="handleClick(item.goTo)"
+          >
+            <LucideHand v-if="item.name === 'Welcome'" />
+            <LucideUser v-else-if="item.name === 'About Us'" />
+            <LucideBookUser v-else-if="item.name === 'Resume'" />
+            <LucideBriefcaseBusiness v-else-if="item.name === 'Portfolio'" />
+            <LucideContact v-else-if="item.name === 'Contact Us'" />
+          </div>
         </div>
       </div>
     </div>
