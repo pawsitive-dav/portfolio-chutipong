@@ -4,10 +4,10 @@ const config = useRuntimeConfig();
 const copied = ref(false);
 
 const menuList = [
+  { name: 'Welcome', goTo: '#welcome' },
   { name: 'About Us', goTo: '#about-us' },
   { name: 'Resume', goTo: '#resume' },
   { name: 'Portfolio', goTo: '#portfolio' },
-  { name: 'Contact Us', goTo: '#contact-us' },
 ];
 
 const socialsContact = [

@@ -1,12 +1,6 @@
-<script setup lang="ts">
-useHead({
-  titleTemplate: 'Home - %s',
-});
-</script>
-
 <template>
   <div class="px-4">
-    <section id="home" class="container h-[800px]">
+    <section id="welcome" class="container h-[800px]">
       <h1 class="text-2xl">
         Chutipong Kritkaow | Full Stack Developer & UX/UI Designer
       </h1>

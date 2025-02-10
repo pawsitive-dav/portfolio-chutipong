@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-
 const stickyMode = ref(false);
 const activeSection = ref('home');
 
@@ -85,7 +83,7 @@ onMounted(() => {
     :class="stickyMode && ' bg-gray-900 bg-opacity-80 backdrop-blur-sm'"
     class="border-b border-gray-700 px-4 sticky top-0 transition-all duration-200"
   >
-    <div class="container text-white">
+    <div class="container">
       <div class="flex items-center justify-between h-[60px]">
         <!-- Left Zone -->
         <div class="flex items-center gap-4">
@@ -103,7 +101,7 @@ onMounted(() => {
             v-for="(item, index) in menuList"
             :key="index"
             @click="handleClick(item.goTo)"
-            class="cursor-pointer transition duration-300 opacity-50 hover:opacity-100"
+            class="cursor-pointer transition duration-300 opacity-80 hover:opacity-100"
             :class="{
               'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
                 activeSection === item.goTo.replace('#', ''),
