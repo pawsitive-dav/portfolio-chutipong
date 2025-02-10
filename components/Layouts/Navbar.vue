@@ -110,11 +110,15 @@ onMounted(() => {
             {{ item.name }}
           </div>
 
-          <!-- ปุ่ม Get in Touch -->
+          <div class="px-4">
+            <BaseFullScreenAction />
+          </div>
+
+          <!-- Get in Touch -->
           <a
             href="https://line.me/ti/p/~hichiso8"
             target="_blank"
-            class="flex items-center gap-2 rounded ml-8 px-4 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
+            class="flex items-center gap-2 rounded px-4 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
           >
             <div>Get in Touch</div>
             <LucideMessageSquareMore :size="18" class="text-white/70" />

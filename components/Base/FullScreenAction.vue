@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-// สถานะปัจจุบันว่าอยู่ใน Full Screen หรือไม่
 const isFullScreen = ref(false);
 
-// ฟังก์ชัน Toggle Full Screen
 const toggleFullScreen = () => {
   if (isFullScreen.value) {
-    // ออกจาก Full Screen
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if ((document as any).mozCancelFullScreen) {
@@ -19,7 +14,6 @@ const toggleFullScreen = () => {
     }
     isFullScreen.value = false;
   } else {
-    // เข้าสู่ Full Screen
     const element = document.documentElement;
     if (element.requestFullscreen) {
       element.requestFullscreen();
@@ -37,11 +31,10 @@ const toggleFullScreen = () => {
 
 <template>
   <div
-    class="text-slate-500 cursor-pointer hover:text-slate-800"
+    class="text-slate-500 cursor-pointer hover:text-slate-400"
     @click="toggleFullScreen"
   >
-    <v-icon size="26">
-      {{ isFullScreen ? 'mdi-fullscreen-exit' : 'mdi-fullscreen' }}
-    </v-icon>
+    <LucideMinimize v-if="isFullScreen" />
+    <LucideMaximize v-else />
   </div>
 </template>
