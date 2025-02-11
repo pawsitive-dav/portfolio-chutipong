@@ -82,29 +82,38 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="container my-24 cursor-default">
-    <div class="grid grid-cols-12">
-      <div class="col-span-4">
-        <div class="text-8xl font-thin">Hi~</div>
-        <div class="text-8xl font-thin">I’m <b>Phan</b></div>
+    <div class="grid grid-cols-12 px-4">
+      <div class="col-span-12 text-center lg:col-span-4 lg:text-left">
+        <div class="text-7xl lg:text-7xl font-thin">Hi~</div>
+        <div class="text-6xl lg:text-7xl font-thin">I’m <b>Phan</b></div>
         <div
-          class="p-4 rounded-md border-2 border-gray-800 bg-gray-800/50 w-fit text-center mt-6"
+          class="p-4 rounded-md border-2 border-gray-800 bg-gray-800/50 w-fit text-center mt-6 hidden lg:block"
         >
-          <div class="text-5xl font-light">{{ currentTime }}</div>
+          <div class="text-5xl font-light">
+            {{ currentTime }}
+          </div>
           <div class="text-white/70 font-light">{{ currentDate }}</div>
         </div>
       </div>
 
-      <div class="col-span-3 relative">
+      <div class="col-span-12 lg:col-span-3 relative">
         <NuxtImg
           src="/assets/phan.png"
           alt="Chutipong Kritakow"
           loading="lazy"
-          class="absolute top-0 left-[-200px] min-w-[450px]"
+          class="absolute bottom-[-40px] left-[-250px] min-w-[450px] hidden lg:block"
+        />
+        <NuxtImg
+          src="/assets/phan-avatar.png"
+          alt="Chutipong Kritakow"
+          loading="lazy"
+          width="250"
+          class="mx-auto my-4 lg:hidden"
         />
       </div>
 
       <!-- About Us -->
-      <div class="col-span-5">
+      <div class="col-span-12 lg:col-span-4">
         <h2 class="text-6xl font-light">About Us</h2>
         <div class="text-white/70 leading-relaxed space-y-6 font-light">
           <p>
@@ -144,7 +153,7 @@ onBeforeUnmount(() => {
             class="col-span-10 lg:col-span-4 space-y-4 text-center lg:text-left"
           >
             <div
-              class="flex items-center mx-auto lg:ml-0 gap-4 w-fit border border-gray-700 rounded bg-gray-800 p-1"
+              class="flex items-center lg:ml-0 gap-4 w-fit border border-gray-700 rounded bg-gray-800 p-1"
             >
               <LucideMail :size="18" class="ml-2 text-white/80" />
               <div class="tracking-widest text-white/80 cursor-text">
@@ -158,9 +167,7 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <div
-              class="flex items-center justify-center lg:justify-start gap-4"
-            >
+            <div class="flex items-center lg:justify-start gap-4">
               <div
                 class="flex items-center gap-4 border border-gray-700 px-3 py-2 rounded text-white/50 hover:text-white/80 hover:bg-white/5"
               >
@@ -189,7 +196,7 @@ onBeforeUnmount(() => {
       </div>
 
       <div
-        class="col-span-12 w-[1000px] mx-auto bg-gray-950 mt-8 z-10 rounded-md p-6 border border-gray-700 font-light"
+        class="col-span-12 max-w-[1000px] mx-auto bg-gray-950 mt-8 z-10 rounded-md p-6 border border-gray-700 font-light"
       >
         <h2 class="text-6xl font-semibold">Tech Stack</h2>
 
@@ -218,7 +225,7 @@ onBeforeUnmount(() => {
             <div
               v-for="(item, index) in frontendTechStack"
               :key="`frontend-${index}`"
-              class="col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
+              class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
                 <NuxtImg
@@ -261,7 +268,7 @@ onBeforeUnmount(() => {
             <div
               v-for="(item, index) in backendTechStack"
               :key="`backend-${index}`"
-              class="col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
+              class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
                 <NuxtImg
@@ -302,7 +309,7 @@ onBeforeUnmount(() => {
             <div
               v-for="(item, index) in databaseTechStack"
               :key="`database-${index}`"
-              class="col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
+              class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
                 <NuxtImg
@@ -343,7 +350,7 @@ onBeforeUnmount(() => {
             <div
               v-for="(item, index) in devopsTechStack"
               :key="`devops-${index}`"
-              class="col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
+              class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
                 <NuxtImg
@@ -385,7 +392,7 @@ onBeforeUnmount(() => {
             <div
               v-for="(item, index) in toolsTechStack"
               :key="`devops-${index}`"
-              class="col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
+              class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
                 <NuxtImg
