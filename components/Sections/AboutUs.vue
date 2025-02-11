@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="container my-24">
+  <div class="container my-24 cursor-default">
     <div class="grid grid-cols-12">
       <div class="col-span-4">
         <div class="text-8xl font-thin">Hi~</div>
@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
       <div class="col-span-5">
         <h2 class="text-6xl font-light">About Us</h2>
         <div class="text-white/70 leading-relaxed space-y-6 font-light">
-          <p class="indent-4">
+          <p>
             I am a <b>Fullstack Developer</b> specializing in
             <b>Frontend Development</b>, passionate about building efficient and
             user-friendly web applications. With expertise in
@@ -115,18 +115,18 @@ onBeforeUnmount(() => {
             high-performance, responsive web applications that deliver seamless
             user experiences.
           </p>
-          <p class="indent-4">
+          <p>
             With <b>3 years of experience in UX/UI Design</b>, I focus on
             <b>user-centered design</b> to create visually appealing and
             intuitive interfaces that align with user behavior.
           </p>
-          <p class="indent-4">
+          <p>
             I have a strong understanding of <b>Scrum Agile</b> methodologies
             and contribute to workflow optimization to enhance team efficiency.
             I am always eager to <b>explore new technologies</b> and integrate
             them into development processes for optimal performance.
           </p>
-          <p class="indent-4">
+          <p>
             I stay updated on the latest <b>technology and design trends</b> to
             ensure that my work remains innovative, modern, and aligned with
             customer needs.
@@ -146,13 +146,13 @@ onBeforeUnmount(() => {
             <div
               class="flex items-center mx-auto lg:ml-0 gap-4 w-fit border border-gray-700 rounded bg-gray-800 p-1"
             >
-              <LucideMail class="ml-2 text-white/80" />
-              <div class="tracking-widest text-white/80">
+              <LucideMail :size="18" class="ml-2 text-white/80" />
+              <div class="tracking-widest text-white/80 cursor-text">
                 ichu.dev@gmail.com
               </div>
               <div
                 @click="copyToClipboard('ichu.dev@gmail.com')"
-                class="bg-white text-gray-900 w-[70px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
+                class="bg-white text-gray-900 w-[80px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
               >
                 {{ copied ? 'Copied!' : 'Copy' }}
               </div>
@@ -162,7 +162,7 @@ onBeforeUnmount(() => {
               class="flex items-center justify-center lg:justify-start gap-4"
             >
               <div
-                class="flex items-center gap-2 border border-gray-700 px-3 py-2 rounded text-white/50 hover:text-white/80 hover:bg-white/5"
+                class="flex items-center gap-4 border border-gray-700 px-3 py-2 rounded text-white/50 hover:text-white/80 hover:bg-white/5"
               >
                 <LucidePhone :size="18" />
                 <a href="tel:0930271716" class="leading-none tracking-widest">

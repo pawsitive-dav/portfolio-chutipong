@@ -56,7 +56,7 @@ const handleClick = (id) => {
 </script>
 
 <template>
-  <div id="contact-us" class="mt-12 font-light">
+  <div id="contact-us" class="mt-12 font-light cursor-default">
     <div class="px-4 py-12 border-t border-gray-700">
       <div class="container">
         <div class="grid grid-cols-10 gap-4 md:gap-6">
@@ -106,13 +106,13 @@ const handleClick = (id) => {
             <div
               class="flex items-center mx-auto lg:ml-0 gap-4 w-fit border border-gray-700 rounded bg-gray-800 p-1"
             >
-              <LucideMail class="ml-2 text-white/80" />
-              <div class="tracking-widest text-white/80">
+              <LucideMail :size="18" class="ml-2 text-white/80" />
+              <div class="tracking-widest text-white/80 cursor-text">
                 ichu.dev@gmail.com
               </div>
               <div
                 @click="copyToClipboard('ichu.dev@gmail.com')"
-                class="bg-white text-gray-900 w-[70px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
+                class="bg-white text-gray-900 w-[80px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
               >
                 {{ copied ? 'Copied!' : 'Copy' }}
               </div>
@@ -122,7 +122,7 @@ const handleClick = (id) => {
               class="flex items-center justify-center lg:justify-start gap-4"
             >
               <div
-                class="flex items-center gap-2 border border-gray-700 px-3 py-2 rounded text-white/50 hover:text-white/80 hover:bg-white/5"
+                class="flex items-center gap-4 border border-gray-700 px-3 py-2 rounded text-white/50 hover:text-white/80 hover:bg-white/5"
               >
                 <LucidePhone :size="18" />
                 <a href="tel:0930271716" class="leading-none tracking-widest">

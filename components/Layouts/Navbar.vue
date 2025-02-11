@@ -91,6 +91,8 @@ onMounted(() => {
             alt="CK Logo"
             loading="lazy"
             width="60"
+            class="cursor-pointer"
+            @click="handleClick('#welcome')"
           />
         </div>
 
