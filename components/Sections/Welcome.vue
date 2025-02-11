@@ -16,13 +16,14 @@ const handleClick = (id) => {
 </script>
 
 <template>
-  <div class="py-24 relative w-full h-screen cursor-default">
+  <div class="py-24 relative w-full h-screen cursor-default overflow-hidden">
     <NuxtImg
       src="/assets/forest-bg.jpg"
       alt="Backgroud"
       loading="lazy"
       class="absolute z-0 left-0 top-0 w-full h-full object-cover opacity-20"
     />
+
     <div class="absolute z-0 left-0 top-0 w-full h-full bg-gray-950/50"></div>
 
     <div class="flex items-center justify-center relative z-10 h-full">
