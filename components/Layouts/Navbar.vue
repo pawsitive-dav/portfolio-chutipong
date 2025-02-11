@@ -5,7 +5,6 @@ const activeSection = ref('welcome');
 const menuList = [
   { name: 'Welcome', goTo: '#welcome' },
   { name: 'About Us', goTo: '#about-us' },
-  { name: 'Resume', goTo: '#resume' },
   { name: 'Portfolio', goTo: '#portfolio' },
   { name: 'Contact Us', goTo: '#contact-us' },
 ];
@@ -81,7 +80,7 @@ onMounted(() => {
 <template>
   <div
     :class="stickyMode && ' bg-gray-900 bg-opacity-80 backdrop-blur-sm'"
-    class="border-b border-gray-700 px-4 sticky top-0 transition-all duration-200"
+    class="fixed w-full border-b border-gray-700 px-4 z-50 top-0 transition-all duration-200"
   >
     <div class="container">
       <div class="flex items-center justify-between h-[60px]">
@@ -110,15 +109,11 @@ onMounted(() => {
             {{ item.name }}
           </div>
 
-          <div class="px-4">
-            <BaseFullScreenAction />
-          </div>
-
           <!-- Get in Touch -->
           <a
             href="https://line.me/ti/p/~hichiso8"
             target="_blank"
-            class="flex items-center gap-2 rounded px-4 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
+            class="flex items-center gap-2 rounded px-4 ml-8 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
           >
             <div>Get in Touch</div>
             <LucideMessageSquareMore :size="18" class="text-white/70" />
@@ -139,8 +134,7 @@ onMounted(() => {
           >
             <LucideHand v-if="item.name === 'Welcome'" />
             <LucideUser v-else-if="item.name === 'About Us'" />
-            <LucideBookUser v-else-if="item.name === 'Resume'" />
-            <LucideBriefcaseBusiness v-else-if="item.name === 'Portfolio'" />
+            <LucideCode v-else-if="item.name === 'Portfolio'" />
             <LucideContact v-else-if="item.name === 'Contact Us'" />
           </div>
         </div>
