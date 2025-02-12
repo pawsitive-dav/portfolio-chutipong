@@ -1,5 +1,5 @@
 <script setup>
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const handleClick = (id) => {
   const targetElement = document.querySelector(id);
@@ -36,16 +36,26 @@ const handleClick = (id) => {
           Full Stack Developer & UX/UI Designer
         </div>
         <h1 class="text-3xl md:text-6xl lg:text-7xl font-light">
-          Welcome to my portfolio!
+          {{
+            locale === 'th'
+              ? 'ยินดีต้อนรับสู่พอร์ตโฟลิโอของฉัน!'
+              : 'Welcome to my portfolio!'
+          }}
         </h1>
-        <h2 class="text-7xl font-thin">I’m Chutipong Kritkaow</h2>
+        <h2 v-if="locale === 'th'" class="text-7xl font-thin">
+          ผมชื่อ <br class="md:hidden" />
+          ชุติพงศ์ <br class="md:hidden" />
+          กฤษแก้ว
+        </h2>
+        <h2 v-else class="text-7xl font-thin">I’m Chutipong Kritkaow</h2>
         <p
           class="leading-relaxed font-light text-white/70 max-w-[635px] mx-auto"
         >
-          I am a Fullstack Developer specializing in Frontend Development,
-          passionate about building efficient and user-friendly web
-          applications. With expertise in JavaScript, Vue.js, Nuxt.js, PHP, and
-          MySQL
+          {{
+            locale === 'th'
+              ? 'ผมทำงานเป็น Fullstack Developer ที่ถนัดด้าน Frontend Development และชื่นชอบในการสร้างเว็บแอปพลิเคชันที่มีประสิทธิภาพและใช้งานง่าย ภาษาที่ใช้งานเป็นหลักคือ JavaScript, Vue.js, Nuxt.js, PHP และ MySQL'
+              : 'I am a Fullstack Developer specializing in Frontend Development, passionate about building efficient and user-friendly web applications. With expertise in JavaScript, Vue.js, Nuxt.js, PHP, and MySQL'
+          }}
         </p>
 
         <div class="flex items-center justify-center gap-4">

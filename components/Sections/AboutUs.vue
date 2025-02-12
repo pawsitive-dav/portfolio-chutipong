@@ -6,7 +6,7 @@ import {
   toolsTechStack,
 } from '~/composables/tech-stack';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const copied = ref(false);
 
@@ -94,10 +94,15 @@ onBeforeUnmount(() => {
       class="absolute left-0 top-0 bottom-0 right-0 mx-auto hidden lg:block w-full opacity-50"
     />
 
-    <div class="grid grid-cols-12 px-4">
+    <div class="grid grid-cols-12 px-4 relative z-10">
       <div class="col-span-12 text-center lg:col-span-4 lg:text-left">
-        <div class="text-7xl lg:text-7xl font-thin">Hi~</div>
-        <div class="text-6xl lg:text-7xl font-thin">I’m <b>Phan</b></div>
+        <div class="text-7xl lg:text-7xl font-thin">
+          {{ t('hi') }}
+        </div>
+        <div class="text-6xl lg:text-7xl font-thin">
+          {{ locale === 'th' ? 'ผมชื่อ' : 'I’m' }}
+          <b>{{ locale === 'th' ? 'ป่าน' : 'Phan' }}</b>
+        </div>
         <div
           class="p-4 rounded-md border-2 border-gray-800 bg-gray-800/50 w-fit text-center mt-6 hidden lg:block"
         >
@@ -126,35 +131,49 @@ onBeforeUnmount(() => {
 
       <!-- About Us -->
       <div class="col-span-12 lg:col-span-4">
-        <h2 class="text-6xl font-light">About Us</h2>
+        <h2 class="text-6xl font-light">{{ t('about') }}</h2>
         <div class="text-white/70 leading-relaxed space-y-6 font-light">
           <p>
-            I am a <b>Fullstack Developer</b> specializing in
-            <b>Frontend Development</b>, passionate about building efficient and
-            user-friendly web applications. With expertise in
-            <b>JavaScript, Vue.js, Nuxt.js, PHP, and MySQL</b>, I develop
-            high-performance, responsive web applications that deliver seamless
-            user experiences.
+            {{
+              locale === 'th'
+                ? 'ผมเป็น Fullstack Developer ที่เชี่ยวชาญด้าน Frontend Development สนุกกับการพัฒนาเว็บแอปพลิเคชันที่ทำงานได้ดีและใช้งานง่าย ด้วยความเชี่ยวชาญใน JavaScript, Vue.js, Nuxt.js, PHP และ MySQL ผมพัฒนาเว็บแอปพลิเคชันที่ทำงานได้ลื่นไหล รองรับทุกอุปกรณ์ และมอบประสบการณ์ที่ดีให้กับผู้ใช้งาน'
+                : 'I am a Fullstack Developer specializing in Frontend Development, passionate about building efficient and user-friendly web applications. With expertise in JavaScript, Vue.js, Nuxt.js, PHP, and MySQL, I develop high-performance, responsive web applications that deliver seamless user experiences.'
+            }}
           </p>
           <p>
-            With <b>3 years of experience in UX/UI Design</b>, I focus on
-            <b>user-centered design</b> to create visually appealing and
-            intuitive interfaces that align with user behavior.
+            {{
+              locale === 'th'
+                ? 'ด้วยประสบการณ์ด้าน UX/UI Design กว่า 3 ปี ผมให้ความสำคัญกับการออกแบบที่เน้นผู้ใช้งานเป็นหลัก เพื่อสร้างอินเทอร์เฟซที่ดูดี ใช้งานง่าย และตอบโจทย์พฤติกรรมของผู้ใช้ได้ดีที่สุด'
+                : 'With 3 years of experience in UX/UI Design, I focus on user-centered design to create visually appealing and intuitive interfaces that align with user behavior.'
+            }}
           </p>
           <p>
-            I have a strong understanding of <b>Scrum Agile</b> methodologies
-            and contribute to workflow optimization to enhance team efficiency.
-            I am always eager to <b>explore new technologies</b> and integrate
-            them into development processes for optimal performance.
+            {{
+              locale === 'th'
+                ? 'ผมมีความเข้าใจในแนวทางการทำงานแบบ Scrum Agile เป็นอย่างดี และสามารถช่วยปรับปรุงกระบวนการทำงานให้ทีมทำงานได้อย่างมีประสิทธิภาพมากขึ้น'
+                : 'I have a strong understanding of Scrum Agile methodologies and contribute to workflow optimization to enhance team efficiency.'
+            }}
           </p>
           <p>
-            I stay updated on the latest <b>technology and design trends</b> to
-            ensure that my work remains innovative, modern, and aligned with
-            customer needs.
+            {{
+              locale === 'th'
+                ? 'ผมชอบเรียนรู้เทคโนโลยีใหม่ๆ และพร้อมนำมาประยุกต์ใช้กับการพัฒนา เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด'
+                : 'I am always eager to explore new technologies and integrate them into development processes for optimal performance.'
+            }}
+          </p>
+          <p>
+            {{
+              locale === 'th'
+                ? 'ผมติดตามเทรนด์เทคโนโลยีและการออกแบบใหม่ๆ อยู่เสมอ เพื่อให้แน่ใจว่าสิ่งที่ผมพัฒนายังคงทันสมัย น่าสนใจ และตอบโจทย์ความต้องการของลูกค้า'
+                : 'I stay updated on the latest technology and design trends to ensure that my work remains innovative, modern, and aligned with customer needs.'
+            }}
           </p>
           <p class="font-medium">
-            📌 I am passionate about crafting web applications that are not only
-            visually stunning but also deliver exceptional user experiences!
+            {{
+              locale === 'th'
+                ? '📌 ผมสนใจในการพัฒนาเว็บแอปพลิเคชันที่ไม่เพียงแค่สวยงาม แต่ยังให้ประสบการณ์การใช้งานที่ยอดเยี่ยมสำหรับผู้ใช้!'
+                : '📌 I am passionate about crafting web applications that are not only visually stunning but also deliver exceptional user experiences!'
+            }}
           </p>
 
           <div class="border-t border-white/20"></div>
@@ -175,7 +194,7 @@ onBeforeUnmount(() => {
                 @click="copyToClipboard('ichu.dev@gmail.com')"
                 class="bg-white text-gray-900 w-[80px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
               >
-                {{ copied ? 'Copied!' : 'Copy' }}
+                {{ copied ? t('copied') : t('copy') }}
               </div>
             </div>
 
@@ -221,18 +240,18 @@ onBeforeUnmount(() => {
           <div class="mb-4 space-y-4 leading-relaxed">
             <h3 class="text-2xl">✅ Frontend Technologies</h3>
             <p class="text-white/70">
-              I specialize in Frontend Development, crafting highly interactive,
-              responsive, and visually appealing user interfaces. My expertise
-              lies in JavaScript (ES6+), TypeScript, Vue.js, Nuxt.js, React.js,
-              Next.js, HTML5, CSS3, and Tailwind CSS, allowing me to build
-              scalable and modern web applications.
+              {{
+                locale === 'th'
+                  ? 'ผมเชี่ยวชาญด้าน Frontend Development ออกแบบและพัฒนา UI ที่มีความโต้ตอบสูง รองรับทุกอุปกรณ์ และดูสวยงาม ด้วยความเชี่ยวชาญใน JavaScript (ES6+), TypeScript, Vue.js, Nuxt.js, React.js, Next.js, HTML5, CSS3 และ Tailwind CSS ทำให้ผมสามารถสร้างเว็บแอปพลิเคชันที่ทันสมัยและขยายขนาดได้อย่างมีประสิทธิภาพ'
+                  : 'I specialize in Frontend Development, crafting highly interactive, responsive, and visually appealing user interfaces. My expertise lies in JavaScript (ES6+), TypeScript, Vue.js, Nuxt.js, React.js, Next.js, HTML5, CSS3, and Tailwind CSS, allowing me to build scalable and modern web applications.'
+              }}
             </p>
             <p class="text-white/70">
-              I focus on delivering seamless user experiences (UX) and
-              optimizing web performance while ensuring cross-browser
-              compatibility and accessibility. I stay up-to-date with the latest
-              frontend technologies and design trends to create innovative and
-              intuitive digital solutions.
+              {{
+                locale === 'th'
+                  ? 'ผมให้ความสำคัญกับการสร้างประสบการณ์ผู้ใช้ (UX) ที่ลื่นไหล และปรับแต่งประสิทธิภาพของเว็บไซต์ให้ทำงานได้อย่างรวดเร็ว พร้อมทั้งรองรับการใช้งานบนทุกเบราว์เซอร์และเป็นมิตรกับการเข้าถึง ผมติดตามเทรนด์เทคโนโลยีด้าน Frontend และแนวทางการออกแบบล่าสุดอยู่เสมอ เพื่อพัฒนาโซลูชันดิจิทัลที่สร้างสรรค์และใช้งานง่าย'
+                  : 'I focus on delivering seamless user experiences (UX) and optimizing web performance while ensuring cross-browser compatibility and accessibility. I stay up-to-date with the latest frontend technologies and design trends to create innovative and intuitive digital solutions.'
+              }}
             </p>
           </div>
           <div class="grid grid-cols-3 gap-4">
@@ -262,20 +281,18 @@ onBeforeUnmount(() => {
           <div class="mb-4 space-y-4 leading-relaxed">
             <h3 class="text-2xl">✅ Backend Technologies</h3>
             <p class="text-white/70">
-              While my primary expertise lies in Frontend Development, I also
-              have solid experience in Backend Technologies to build and manage
-              efficient, scalable, and secure web applications. I am proficient
-              in Node.js, Express.js, PHP, Python, RESTful API, and
-              Authentication (JWT/OAuth), which allows me to develop robust
-              server-side logic, handle API integrations, and manage databases
-              efficiently.
+              {{
+                locale === 'th'
+                  ? 'แม้ว่าความเชี่ยวชาญหลักของผมจะอยู่ที่ Frontend Development แต่ผมก็มีประสบการณ์ที่มั่นคงด้าน Backend Technologies ในการพัฒนาและจัดการเว็บแอปพลิเคชันให้มีประสิทธิภาพ ขยายขนาดได้ และมีความปลอดภัย ผมมีความชำนาญใน Node.js, Express.js, PHP, Python, RESTful API และระบบยืนยันตัวตน (JWT/OAuth) ซึ่งช่วยให้สามารถพัฒนา logic ฝั่งเซิร์ฟเวอร์ จัดการ API และบริหารฐานข้อมูลได้อย่างมีประสิทธิภาพ'
+                  : 'While my primary expertise lies in Frontend Development, I also have solid experience in Backend Technologies to build and manage efficient, scalable, and secure web applications. I am proficient in Node.js, Express.js, PHP, Python, RESTful API, and Authentication (JWT/OAuth), which allows me to develop robust server-side logic, handle API integrations, and manage databases efficiently.'
+              }}
             </p>
             <p class="text-white/70">
-              I focus on optimizing backend performance, ensuring secure
-              authentication, API reliability, and database efficiency. I follow
-              best practices in RESTful API design, authentication security, and
-              database structuring to ensure smooth communication between the
-              frontend and backend.
+              {{
+                locale === 'th'
+                  ? 'ผมให้ความสำคัญกับการเพิ่มประสิทธิภาพของ Backend การรักษาความปลอดภัยในการยืนยันตัวตน ความเสถียรของ API และการจัดการฐานข้อมูล ผมยึดมั่นในการออกแบบ RESTful API ตามมาตรฐานสากล รักษาความปลอดภัยของระบบยืนยันตัวตน และโครงสร้างฐานข้อมูลเพื่อให้แน่ใจว่าการสื่อสารระหว่าง Frontend และ Backend ทำงานได้อย่างราบรื่น'
+                  : 'I focus on optimizing backend performance, ensuring secure authentication, API reliability, and database efficiency. I follow best practices in RESTful API design, authentication security, and database structuring to ensure smooth communication between the frontend and backend.'
+              }}
             </p>
           </div>
           <div class="grid grid-cols-3 gap-4">
@@ -305,18 +322,18 @@ onBeforeUnmount(() => {
           <div class="mb-4 space-y-4 leading-relaxed">
             <h3 class="text-2xl">✅ Database & Storage</h3>
             <p class="text-white/70">
-              I have strong expertise in MySQL, specializing in designing and
-              optimizing relational databases for scalable and efficient web
-              applications. I am proficient in writing complex SQL queries,
-              indexing, database normalization, and performance tuning, ensuring
-              data integrity and fast retrieval.
+              {{
+                locale === 'th'
+                  ? 'ผมมีความเชี่ยวชาญในการออกแบบและปรับแต่งฐานข้อมูล MySQL เพื่อรองรับเว็บแอปพลิเคชันที่สามารถขยายขนาดได้และมีประสิทธิภาพสูง ผมชำนาญในการเขียนคำสั่ง SQL ที่ซับซ้อน การทำดัชนี (Indexing) การทำ Database Normalization และการปรับจูนประสิทธิภาพฐานข้อมูล เพื่อให้มั่นใจได้ว่าข้อมูลมีความถูกต้องและสามารถดึงข้อมูลได้อย่างรวดเร็ว'
+                  : 'I have strong expertise in MySQL, specializing in designing and optimizing relational databases for scalable and efficient web applications. I am proficient in writing complex SQL queries, indexing, database normalization, and performance tuning, ensuring data integrity and fast retrieval.'
+              }}
             </p>
             <p class="text-white/70">
-              In addition to MySQL, I have experience working with MongoDB and
-              Firebase Firestore, enabling me to manage NoSQL databases for
-              real-time applications and flexible data structures. I focus on
-              database security, query optimization, and efficient data storage
-              to ensure seamless communication between the frontend and backend.
+              {{
+                locale === 'th'
+                  ? 'นอกจาก MySQL แล้ว ผมยังมีประสบการณ์ในการใช้งาน MongoDB และ Firebase Firestore ทำให้สามารถจัดการฐานข้อมูลแบบ NoSQL สำหรับแอปพลิเคชันที่ต้องการทำงานแบบเรียลไทม์และมีโครงสร้างข้อมูลที่ยืดหยุ่น ผมให้ความสำคัญกับความปลอดภัยของฐานข้อมูล การปรับแต่งประสิทธิภาพของ Query และการจัดเก็บข้อมูลให้มีประสิทธิภาพสูงสุด เพื่อให้แน่ใจว่าการสื่อสารระหว่าง Frontend และ Backend เป็นไปอย่างราบรื่น'
+                  : 'In addition to MySQL, I have experience working with MongoDB and Firebase Firestore, enabling me to manage NoSQL databases for real-time applications and flexible data structures. I focus on database security, query optimization, and efficient data storage to ensure seamless communication between the frontend and backend.'
+              }}
             </p>
           </div>
           <div class="grid grid-cols-3 gap-4">
@@ -346,18 +363,18 @@ onBeforeUnmount(() => {
           <div class="mb-4 space-y-4 leading-relaxed">
             <h3 class="text-2xl">✅ DevOps</h3>
             <p class="text-white/70">
-              I have intermediate proficiency in DevOps & Deployment, focusing
-              on Docker, Git & GitHub, NGINX, Apache, and Jenkins. My experience
-              includes containerizing applications with Docker, setting up CI/CD
-              pipelines using Jenkins, and configuring NGINX and Apache for web
-              server deployment.
+              {{
+                locale === 'th'
+                  ? 'ผมมีความรู้ระดับกลางด้าน DevOps & Deployment โดยเน้นการใช้งาน Docker, Git & GitHub, NGINX, Apache และ Jenkins ผมมีประสบการณ์ในการคอนเทนเนอร์ไรซ์แอปพลิเคชันด้วย Docker ตั้งค่า CI/CD pipelines ด้วย Jenkins และกำหนดค่าเซิร์ฟเวอร์เว็บด้วย NGINX และ Apache'
+                  : 'I have intermediate proficiency in DevOps & Deployment, focusing on Docker, Git & GitHub, NGINX, Apache, and Jenkins. My experience includes containerizing applications with Docker, setting up CI/CD pipelines using Jenkins, and configuring NGINX and Apache for web server deployment.'
+              }}
             </p>
             <p class="text-white/70">
-              I am comfortable working with version control (Git), ensuring
-              efficient collaboration and code management. While I may not be an
-              expert, I can effectively manage server environments, automate
-              deployments, and troubleshoot basic DevOps challenges to ensure
-              smooth and reliable web application performance.
+              {{
+                locale === 'th'
+                  ? 'ผมสามารถทำงานร่วมกับระบบควบคุมเวอร์ชัน (Git) ได้อย่างคล่องตัว เพื่อให้การทำงานเป็นทีมและการจัดการโค้ดเป็นไปอย่างมีประสิทธิภาพ แม้ว่าผมอาจจะไม่ใช่ผู้เชี่ยวชาญด้าน DevOps แต่ก็สามารถจัดการเซิร์ฟเวอร์ อัตโนมัติการ Deploy และแก้ไขปัญหาพื้นฐานของ DevOps ได้ เพื่อให้มั่นใจว่าเว็บแอปพลิเคชันทำงานได้อย่างราบรื่นและเสถียร'
+                  : 'I am comfortable working with version control (Git), ensuring efficient collaboration and code management. While I may not be an expert, I can effectively manage server environments, automate deployments, and troubleshoot basic DevOps challenges to ensure smooth and reliable web application performance.'
+              }}
             </p>
           </div>
           <div class="grid grid-cols-3 gap-4">
@@ -387,19 +404,18 @@ onBeforeUnmount(() => {
           <div class="mb-4 space-y-4 leading-relaxed">
             <h3 class="text-2xl">✅ Tools & Soft Skills</h3>
             <p class="text-white/70">
-              In addition to my technical expertise, I am proficient in various
-              development tools and soft skills that enhance my productivity and
-              collaboration. I am skilled in using Postman and Swagger for API
-              testing and documentation, Figma for UI/UX design, and Jira &
-              Notion for project management and workflow optimization.
+              {{
+                locale === 'th'
+                  ? 'นอกจากความเชี่ยวชาญทางเทคนิคแล้ว ผมยังมีทักษะในการใช้เครื่องมือต่างๆ ที่ช่วยเพิ่มประสิทธิภาพในการทำงานและการทำงานร่วมกัน ผมสามารถใช้ Postman และ Swagger ในการทดสอบและจัดทำเอกสาร API ใช้ Figma สำหรับออกแบบ UI/UX และใช้ Jira & Notion เพื่อจัดการโปรเจกต์และปรับปรุงกระบวนการทำงาน'
+                  : 'In addition to my technical expertise, I am proficient in various development tools and soft skills that enhance my productivity and collaboration. I am skilled in using Postman and Swagger for API testing and documentation, Figma for UI/UX design, and Jira & Notion for project management and workflow optimization.'
+              }}
             </p>
             <p class="text-white/70">
-              I follow Agile & Scrum methodologies, ensuring smooth
-              collaboration in development teams. I am also highly proficient in
-              VS Code and IntelliJ IDEA, which allow me to maintain a clean and
-              efficient coding workflow. Additionally, I leverage AI-powered
-              tools like ChatGPT and Google Gemini to streamline problem-solving
-              and enhance my learning process.
+              {{
+                locale === 'th'
+                  ? 'ผมทำงานตามหลักการ Agile & Scrum เพื่อให้การทำงานร่วมกับทีมพัฒนาเป็นไปอย่างราบรื่น นอกจากนี้ ผมยังมีความชำนาญในการใช้ VS Code และ IntelliJ IDEA เพื่อให้การเขียนโค้ดเป็นระบบและมีประสิทธิภาพ รวมถึงใช้เครื่องมือ AI อย่าง ChatGPT และ Google Gemini เพื่อช่วยแก้ปัญหาและเพิ่มประสิทธิภาพในการเรียนรู้'
+                  : 'I follow Agile & Scrum methodologies, ensuring smooth collaboration in development teams. I am also highly proficient in VS Code and IntelliJ IDEA, which allow me to maintain a clean and efficient coding workflow. Additionally, I leverage AI-powered tools like ChatGPT and Google Gemini to streamline problem-solving and enhance my learning process.'
+              }}
             </p>
           </div>
           <div class="grid grid-cols-3 gap-4">

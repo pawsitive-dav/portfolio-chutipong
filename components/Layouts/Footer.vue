@@ -123,7 +123,7 @@ const content = ref({
                 @click="copyToClipboard('ichu.dev@gmail.com')"
                 class="bg-white text-gray-900 w-[80px] text-center font-normal capitalize px-2 py-1 rounded text-sm cursor-pointer hover:bg-opacity-90 transition duration-300"
               >
-                {{ copied ? 'Copied!' : 'Copy' }}
+                {{ copied ? t('copied') : t('copy') }}
               </div>
             </div>
 
