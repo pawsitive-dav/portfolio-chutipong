@@ -1,4 +1,6 @@
 <script setup>
+const { t } = useI18n();
+
 const handleClick = (id) => {
   const targetElement = document.querySelector(id);
   if (targetElement) {
@@ -52,14 +54,14 @@ const handleClick = (id) => {
             target="_blank"
             class="flex items-center gap-2 w-fit rounded px-4 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
           >
-            <div>Get in Touch</div>
+            <div>{{ t('get_in_touch') }}</div>
             <LucideMessageSquareMore :size="18" class="text-white/70" />
           </a>
           <div
             class="flex items-center h-[40px] rounded border border-dashed font-light tracking-widest border-white/70 px-4 text-white/70 cursor-pointer hover:bg-white/10 hover:text-white/90"
             @click="handleClick('#contact-us')"
           >
-            Contact Us
+            {{ t('contact') }}
           </div>
         </div>
       </div>

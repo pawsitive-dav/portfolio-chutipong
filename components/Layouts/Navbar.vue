@@ -1,12 +1,14 @@
 <script setup>
+const { t } = useI18n();
+
 const stickyMode = ref(false);
 const activeSection = ref('welcome');
 
 const menuList = [
-  { name: 'Welcome', goTo: '#welcome' },
-  { name: 'About Us', goTo: '#about-us' },
-  { name: 'Portfolio', goTo: '#portfolio' },
-  { name: 'Contact Us', goTo: '#contact-us' },
+  { name: 'Welcome', goTo: '#welcome', keyLang: 'home' },
+  { name: 'About Us', goTo: '#about-us', keyLang: 'about' },
+  { name: 'Portfolio', goTo: '#portfolio', keyLang: 'portfolio' },
+  { name: 'Contact Us', goTo: '#contact-us', keyLang: 'contact' },
 ];
 
 const handleScroll = () => {
@@ -108,7 +110,7 @@ onMounted(() => {
             }"
             @click="handleClick(item.goTo)"
           >
-            {{ item.name }}
+            {{ t(item.keyLang) }}
           </div>
 
           <BaseLangSwitcher />
@@ -119,7 +121,7 @@ onMounted(() => {
             target="_blank"
             class="flex items-center gap-2 rounded px-4 ml-8 h-[40px] tracking-widest cursor-pointer bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition duration-300"
           >
-            <div>Get in Touch</div>
+            <div>{{ t('get_in_touch') }}</div>
             <LucideMessageSquareMore :size="18" class="text-white/70" />
           </a>
         </div>

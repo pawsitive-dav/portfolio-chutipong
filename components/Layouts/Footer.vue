@@ -1,12 +1,14 @@
 <script setup>
+const { t, locale } = useI18n();
+
 const config = useRuntimeConfig();
 
 const copied = ref(false);
 
 const menuList = [
-  { name: 'Welcome', goTo: '#welcome' },
-  { name: 'About Us', goTo: '#about-us' },
-  { name: 'Portfolio', goTo: '#portfolio' },
+  { name: 'Welcome', goTo: '#welcome', keyLang: 'home' },
+  { name: 'About Us', goTo: '#about-us', keyLang: 'about' },
+  { name: 'Portfolio', goTo: '#portfolio', keyLang: 'portfolio' },
 ];
 
 const socialsContact = [
@@ -56,6 +58,14 @@ const handleClick = (id) => {
     });
   }
 };
+
+// Content
+const content = ref({
+  thankYouEn:
+    'Thank you for taking the time to review my portfolio. Even though we haven’t worked together yet, I truly hope we’ll have the opportunity to collaborate in the future and create something great together.',
+  thankYouTh:
+    'ขอบคุณที่สละเวลาในการชมผลงานของฉัน แม้ว่าตอนนี้เราจะยังไม่ได้ร่วมงานกัน แต่ฉันหวังเป็นอย่างยิ่งว่าเราจะมีโอกาสได้ทำงานร่วมกันในอนาคตและสร้างสิ่งที่ยอดเยี่ยมไปด้วยกัน',
+});
 </script>
 
 <template>
@@ -74,10 +84,7 @@ const handleClick = (id) => {
               class="mx-auto lg:ml-0"
             />
             <div class="text-sm text-white/60 max-w-[420px] mx-auto lg:ml-0">
-              Thank you for taking the time to review my portfolio. Even though
-              we haven’t worked together yet, I truly hope we’ll have the
-              opportunity to collaborate in the future and create something
-              great together.
+              {{ locale === 'th' ? content.thankYouTh : content.thankYouEn }}
             </div>
           </div>
 
@@ -92,7 +99,7 @@ const handleClick = (id) => {
                 class="text-sm text-white/60 cursor-pointer hover:text-white/90"
                 @click="handleClick(item.goTo)"
               >
-                {{ item.name }}
+                {{ t(item.keyLang) }}
               </div>
             </div>
           </div>
@@ -102,8 +109,7 @@ const handleClick = (id) => {
           >
             <div class="font-medium">Contact Us</div>
             <div class="text-sm text-white/60 max-w-[380px] mx-auto lg:ml-0">
-              62/40 Soi Charoen Krung 57, Khwaeng Yan Nawa, Khet Sathon, Krung
-              Thep Maha Nakhon 10120
+              {{ t('address') }}
             </div>
 
             <div

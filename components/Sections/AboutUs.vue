@@ -6,6 +6,8 @@ import {
   toolsTechStack,
 } from '~/composables/tech-stack';
 
+const { t } = useI18n();
+
 const copied = ref(false);
 
 const socialsContact = [

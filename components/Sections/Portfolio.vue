@@ -1,4 +1,6 @@
 <script setup>
+const { t } = useI18n();
+
 const showModal = ref(false);
 const selectedImage = ref('');
 
