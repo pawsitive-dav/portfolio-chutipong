@@ -21,8 +21,10 @@ watch(
   () => props.modelValue,
   (newValue) => {
     if (newValue) {
+      document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', handleKeydown);
     } else {
+      document.body.style.overflow = '';
       document.removeEventListener('keydown', handleKeydown);
     }
   }
