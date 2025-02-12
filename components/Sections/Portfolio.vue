@@ -1,4 +1,12 @@
 <script setup>
+const showModal = ref(false);
+const selectedImage = ref('');
+
+const openModal = (image) => {
+  selectedImage.value = image;
+  showModal.value = true;
+};
+
 const websiteList = [
   {
     image: '/assets/website/the-visual.jpg',
@@ -108,7 +116,7 @@ const designList = [
         :key="`line-${index}`"
         class="col-span-10 md:col-span-2"
       >
-        <div class="bg-white rounded-lg p-2">
+        <div class="bg-white rounded-lg p-2" @click="openModal(item.image)">
           <NuxtImg
             :src="item.image"
             alt="Image"
@@ -147,7 +155,7 @@ const designList = [
         :key="`webapp-${index}`"
         class="col-span-12 md:col-span-6 lg:col-span-4"
       >
-        <div class="bg-white rounded-lg p-2">
+        <div class="bg-white rounded-lg p-2" @click="openModal(item.image)">
           <NuxtImg
             :src="item.image"
             alt="Image"
@@ -186,7 +194,7 @@ const designList = [
         :key="`design-${index}`"
         class="col-span-12 md:col-span-6"
       >
-        <div class="bg-white rounded-lg p-2">
+        <div class="bg-white rounded-lg p-2" @click="openModal(item.image)">
           <NuxtImg
             :src="item.image"
             alt="Image"
@@ -196,5 +204,15 @@ const designList = [
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <BaseModal v-model="showModal">
+      <NuxtImg
+        :src="selectedImage"
+        alt="Selected Image"
+        loading="lazy"
+        class="mx-auto shadow-lg"
+      />
+    </BaseModal>
   </div>
 </template>
