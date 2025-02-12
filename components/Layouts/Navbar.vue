@@ -111,6 +111,8 @@ onMounted(() => {
             {{ item.name }}
           </div>
 
+          <BaseLangSwitcher />
+
           <!-- Get in Touch -->
           <a
             href="https://line.me/ti/p/~hichiso8"
@@ -138,6 +140,9 @@ onMounted(() => {
             <LucideUser v-else-if="item.name === 'About Us'" />
             <LucideCode v-else-if="item.name === 'Portfolio'" />
             <LucideContact v-else-if="item.name === 'Contact Us'" />
+          </div>
+          <div class="flex items-center justify-center">
+            <BaseLangSwitcher />
           </div>
         </div>
       </div>
