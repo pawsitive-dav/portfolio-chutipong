@@ -1,32 +1,22 @@
 <script setup>
-import {
-  defineProps,
-  defineEmits,
-  watch,
-  ref,
-  onMounted,
-  onUnmounted,
-} from 'vue';
+import { defineProps, defineEmits, watch, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
-  modelValue: Boolean, // ควบคุมการแสดงผล Modal
+  modelValue: Boolean,
 });
 
 const emit = defineEmits(['update:modelValue']);
 
-// ปิด Modal เมื่อกด Escape
 const handleKeydown = (event) => {
   if (event.key === 'Escape') {
     closeModal();
   }
 };
 
-// ฟังก์ชันปิด Modal
 const closeModal = () => {
   emit('update:modelValue', false);
 };
 
-// ตรวจจับ Escape Key เมื่อ Modal เปิด
 watch(
   () => props.modelValue,
   (newValue) => {
@@ -58,21 +48,26 @@ onUnmounted(() => {
       >
         <!-- Overlay -->
         <div
-          class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-sm transition-opacity"
+          class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur transition-opacity"
           @click="closeModal"
         ></div>
 
         <!-- Modal Box -->
-        <div class="relative bg-white rounded-lg p-6 max-w-lg w-full z-10">
+        <div
+          class="relative bg-white rounded-lg p-6 max-w-[1200px] w-full max-h-[90vh] overflow-auto z-10"
+        >
+          <!-- ปุ่มปิด (Fixed Position) -->
           <button
-            class="absolute top-[-16px] right-[-16px] text-gray-600 hover:text-gray-900 bg-white p-2 rounded-full shadow-lg"
+            class="fixed top-4 right-4 text-gray-600 hover:text-gray-900 bg-white p-2 rounded-full shadow-lg z-50"
             @click="closeModal"
           >
             <LucideX />
           </button>
 
-          <!-- Slot Modal -->
-          <slot />
+          <!-- Slot Content (รองรับ Scroll) -->
+          <div class="flex justify-center">
+            <slot />
+          </div>
         </div>
       </div>
     </Transition>
@@ -82,6 +77,9 @@ onUnmounted(() => {
 <style scoped>
 /* Fade Animation */
 .modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
 .modal-fade-enter-from,
 .modal-fade-leave-to {
   opacity: 0;

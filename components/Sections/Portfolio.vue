@@ -211,7 +211,7 @@ const designList = [
         :src="selectedImage"
         alt="Selected Image"
         loading="lazy"
-        class="mx-auto shadow-lg"
+        class="mx-auto shadow-lg w-full rounded-lg"
       />
     </BaseModal>
   </div>
