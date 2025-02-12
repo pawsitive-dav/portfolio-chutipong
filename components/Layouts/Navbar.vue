@@ -103,7 +103,7 @@ onMounted(() => {
             :key="index"
             class="cursor-pointer transition duration-300 opacity-80 hover:opacity-100"
             :class="{
-              'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
+              ' opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
                 activeSection === item.goTo.replace('#', ''),
             }"
             @click="handleClick(item.goTo)"
@@ -111,7 +111,7 @@ onMounted(() => {
             {{ item.name }}
           </div>
 
-          <!-- <BaseLangSwitcher /> -->
+          <BaseLangSwitcher />
 
           <!-- Get in Touch -->
           <a
@@ -130,7 +130,7 @@ onMounted(() => {
             v-for="(item, index) in menuList"
             :key="`mobile-${index}`"
             :class="{
-              'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
+              'opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
                 activeSection === item.goTo.replace('#', ''),
             }"
             class="p-2 rounded bg-white/5 text-white/60"

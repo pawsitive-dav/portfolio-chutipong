@@ -117,9 +117,17 @@ const designList = [
         class="col-span-10 md:col-span-2"
       >
         <div
-          class="bg-white rounded-lg p-2 cursor-pointer"
+          class="bg-white rounded-lg p-2 cursor-pointer hidden md:block"
           @click="openModal(item.image)"
         >
+          <img
+            :src="item.image"
+            alt="Image"
+            loading="lazy"
+            class="rounded-md border w-full object-cover"
+          />
+        </div>
+        <div class="bg-white rounded-lg p-2 cursor-pointer md:hidden">
           <img
             :src="item.image"
             alt="Image"
@@ -159,9 +167,17 @@ const designList = [
         class="col-span-12 md:col-span-6 lg:col-span-4"
       >
         <div
-          class="bg-white rounded-lg p-2 cursor-pointer"
+          class="bg-white rounded-lg p-2 cursor-pointer hidden md:block"
           @click="openModal(item.image)"
         >
+          <img
+            :src="item.image"
+            alt="Image"
+            loading="lazy"
+            class="rounded-md border aspect-video object-cover"
+          />
+        </div>
+        <div class="bg-white rounded-lg p-2 cursor-pointer md:hidden">
           <img
             :src="item.image"
             alt="Image"
@@ -201,9 +217,17 @@ const designList = [
         class="col-span-12 md:col-span-6"
       >
         <div
-          class="bg-white rounded-lg p-2 cursor-pointer"
+          class="bg-white rounded-lg p-2 cursor-pointer hidden md:block"
           @click="openModal(item.image)"
         >
+          <img
+            :src="item.image"
+            alt="Image"
+            loading="lazy"
+            class="rounded-md border aspect-video object-cover"
+          />
+        </div>
+        <div class="bg-white rounded-lg p-2 cursor-pointer md:hidden">
           <img
             :src="item.image"
             alt="Image"

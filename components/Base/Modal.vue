@@ -60,7 +60,7 @@ onUnmounted(() => {
         >
           <!-- ปุ่มปิด (Fixed Position) -->
           <button
-            class="fixed top-4 right-4 text-gray-600 hover:text-gray-900 bg-white p-2 rounded-full shadow-lg z-50"
+            class="fixed z-50 top-4 right-4 text-gray-600 hover:text-gray-900 bg-white p-2 rounded-full shadow-lg"
             @click="closeModal"
           >
             <LucideX />
