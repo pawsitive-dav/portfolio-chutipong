@@ -14,16 +14,19 @@ const socialsContact = [
     icon: '/assets/line-icon-light.png',
     alt: 'LINE',
     link: 'https://line.me/ti/p/~hichiso8',
+    name: 'LINE',
   },
   {
     icon: '/assets/github-icon-light.png',
     alt: 'GITHUB 1',
     link: 'https://github.com/pawsitive-dav',
+    name: 'pawsitive-dav',
   },
   {
     icon: '/assets/github-icon-light.png',
     alt: 'GITHUB 2',
     link: 'https://github.com/Captain-Rhea',
+    name: 'Captain-Rhea',
   },
 ];
 
@@ -136,12 +139,14 @@ const handleClick = (id) => {
                 :href="item.link"
                 target="_blank"
               >
-                <NuxtImg
-                  :src="item.icon"
-                  :alt="item.alt"
-                  loading="lazy"
-                  width="30"
-                />
+                <BaseTooltip :text="item.name">
+                  <NuxtImg
+                    :src="item.icon"
+                    :alt="item.alt"
+                    loading="lazy"
+                    width="30"
+                  />
+                </BaseTooltip>
               </a>
             </div>
           </div>
