@@ -9,7 +9,7 @@
     </section>
 
     <section id="portfolio">
-      <!-- <SectionsPortfolio /> -->
+      <SectionsPortfolio />
     </section>
   </div>
 </template>
