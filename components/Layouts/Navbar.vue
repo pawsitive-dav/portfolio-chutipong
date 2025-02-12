@@ -1,4 +1,6 @@
 <script setup>
+const { t, locale } = useI18n();
+
 const stickyMode = ref(false);
 const activeSection = ref('welcome');
 
@@ -111,7 +113,7 @@ onMounted(() => {
             {{ item.name }}
           </div>
 
-          <BaseLangSwitcher />
+          <!-- <BaseLangSwitcher /> -->
 
           <!-- Get in Touch -->
           <a
@@ -128,7 +130,7 @@ onMounted(() => {
         <div class="md:hidden flex gap-2">
           <div
             v-for="(item, index) in menuList"
-            :key="`mobile-${menuList}`"
+            :key="`mobile-${index}`"
             :class="{
               'text-primary-500 opacity-100 hover:opacity-100 border-b border-dashed border-white/40 pb-1':
                 activeSection === item.goTo.replace('#', ''),

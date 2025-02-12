@@ -49,7 +49,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       lastUpdate: '10 Feb 2025',
-      mainApi: 'http://localhost:4100',
     },
   },
   modules: [

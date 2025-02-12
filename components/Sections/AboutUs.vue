@@ -16,13 +16,13 @@ const socialsContact = [
   },
   {
     icon: '/assets/github-icon-light.png',
-    alt: 'GITHUB',
+    alt: 'GITHUB 1',
     link: 'https://github.com/pawsitive-dav',
   },
   {
-    icon: '/assets/facebook-icon-light.png',
-    alt: 'Facebook',
-    link: 'https://www.facebook.com/ichudev',
+    icon: '/assets/github-icon-light.png',
+    alt: 'GITHUB 2',
+    link: 'https://github.com/Captain-Rhea',
   },
 ];
 
