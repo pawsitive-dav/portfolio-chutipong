@@ -81,7 +81,14 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="container my-24 cursor-default">
+  <div class="container my-24 cursor-default relative">
+    <NuxtImg
+      src="/assets/logo-overlay.png"
+      alt="Logo Overlay"
+      loading="lazy"
+      class="absolute left-0 top-0 bottom-0 right-0 mx-auto hidden lg:block w-full opacity-50"
+    />
+
     <div class="grid grid-cols-12 px-4">
       <div class="col-span-12 text-center lg:col-span-4 lg:text-left">
         <div class="text-7xl lg:text-7xl font-thin">Hi~</div>
