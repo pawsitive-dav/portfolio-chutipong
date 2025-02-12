@@ -17,7 +17,7 @@ const handleClick = (id) => {
 
 <template>
   <div class="py-24 relative w-full h-screen cursor-default overflow-hidden">
-    <NuxtImg
+    <img
       src="/assets/forest-bg.jpg"
       alt="Backgroud"
       loading="lazy"

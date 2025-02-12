@@ -1,6 +1,4 @@
 <script setup>
-const { t, locale } = useI18n();
-
 const stickyMode = ref(false);
 const activeSection = ref('welcome');
 
@@ -88,7 +86,7 @@ onMounted(() => {
       <div class="flex items-center justify-between h-[60px]">
         <!-- Left Zone -->
         <div class="flex items-center gap-4">
-          <NuxtImg
+          <img
             src="/assets/ck-logo-light.svg"
             alt="CK Logo"
             loading="lazy"

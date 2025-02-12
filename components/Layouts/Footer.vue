@@ -66,7 +66,7 @@ const handleClick = (id) => {
           <div
             class="col-span-10 lg:col-span-4 space-y-4 text-center lg:text-left"
           >
-            <NuxtImg
+            <img
               src="/assets/ck-logo-light.svg"
               alt="CK Logo"
               loading="lazy"
@@ -140,7 +140,7 @@ const handleClick = (id) => {
                 target="_blank"
               >
                 <BaseTooltip :text="item.name">
-                  <NuxtImg
+                  <img
                     :src="item.icon"
                     :alt="item.alt"
                     loading="lazy"

@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="container my-24 cursor-default relative">
-    <NuxtImg
+    <img
       src="/assets/logo-overlay.png"
       alt="Logo Overlay"
       loading="lazy"
@@ -107,13 +107,13 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="col-span-12 lg:col-span-3 relative">
-        <NuxtImg
+        <img
           src="/assets/phan.png"
           alt="Chutipong Kritakow"
           loading="lazy"
           class="absolute bottom-[-40px] left-[-250px] min-w-[450px] hidden lg:block"
         />
-        <NuxtImg
+        <img
           src="/assets/phan-avatar.png"
           alt="Chutipong Kritakow"
           loading="lazy"
@@ -194,7 +194,7 @@ onBeforeUnmount(() => {
                 target="_blank"
               >
                 <BaseTooltip :text="item.name">
-                  <NuxtImg
+                  <img
                     :src="item.icon"
                     :alt="item.alt"
                     loading="lazy"
@@ -240,7 +240,7 @@ onBeforeUnmount(() => {
               class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
-                <NuxtImg
+                <img
                   :src="item.logo"
                   :alt="item.name"
                   loading="lazy"
@@ -283,7 +283,7 @@ onBeforeUnmount(() => {
               class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
-                <NuxtImg
+                <img
                   :src="item.logo"
                   :alt="item.name"
                   loading="lazy"
@@ -324,7 +324,7 @@ onBeforeUnmount(() => {
               class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
-                <NuxtImg
+                <img
                   :src="item.logo"
                   :alt="item.name"
                   loading="lazy"
@@ -365,7 +365,7 @@ onBeforeUnmount(() => {
               class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
-                <NuxtImg
+                <img
                   :src="item.logo"
                   :alt="item.name"
                   loading="lazy"
@@ -407,7 +407,7 @@ onBeforeUnmount(() => {
               class="col-span-3 md:col-span-1 p-4 rounded-md bg-gray-900 border border-gray-800 space-y-4"
             >
               <div class="flex items-center gap-4">
-                <NuxtImg
+                <img
                   :src="item.logo"
                   :alt="item.name"
                   loading="lazy"

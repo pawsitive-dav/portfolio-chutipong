@@ -80,7 +80,7 @@ const designList = [
       >
         <a :href="item.link" target="_blank">
           <div class="p-2 bg-white rounded-lg relative z-10 cursor-pointer">
-            <NuxtImg
+            <img
               :src="item.image"
               :alt="item.name"
               loading="lazy"
@@ -120,7 +120,7 @@ const designList = [
           class="bg-white rounded-lg p-2 cursor-pointer"
           @click="openModal(item.image)"
         >
-          <NuxtImg
+          <img
             :src="item.image"
             alt="Image"
             loading="lazy"
@@ -162,7 +162,7 @@ const designList = [
           class="bg-white rounded-lg p-2 cursor-pointer"
           @click="openModal(item.image)"
         >
-          <NuxtImg
+          <img
             :src="item.image"
             alt="Image"
             loading="lazy"
@@ -204,7 +204,7 @@ const designList = [
           class="bg-white rounded-lg p-2 cursor-pointer"
           @click="openModal(item.image)"
         >
-          <NuxtImg
+          <img
             :src="item.image"
             alt="Image"
             loading="lazy"
@@ -216,7 +216,7 @@ const designList = [
 
     <!-- Modal -->
     <BaseModal v-model="showModal">
-      <NuxtImg
+      <img
         :src="selectedImage"
         alt="Selected Image"
         loading="lazy"
